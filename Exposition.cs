@@ -15,15 +15,15 @@ namespace Exposito
 
         public static int GetCommonHeight(Row row, int newWidth)
         {
-            int initialHeight = row.frames[0].height;
+            int initialHeight = row.Frames[0].Height;
             Console.WriteLine(initialHeight);
 
             int newFrameWidth;
             int totalFramesWidth = 0;
 
-            foreach (Frame f in row.frames)
+            foreach (Frame f in row.Frames)
             {
-                newFrameWidth = initialHeight * f.width / f.height;
+                newFrameWidth = initialHeight * f.Width / f.Height;
                 totalFramesWidth += newFrameWidth;
                 Console.WriteLine("newWidth: " + totalFramesWidth.ToString());
             }
@@ -58,7 +58,7 @@ namespace Exposito
                 newGraphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 newGraphics.CompositingQuality = CompositingQuality.HighQuality;
 
-                foreach (var frame in row.frames)
+                foreach (var frame in row.Frames)
                 {
                     int newWidth = (int)Math.Round(galleryHeight * frame.GetRatio(), 0);
 
@@ -72,9 +72,6 @@ namespace Exposito
                 encoderParams.Param[0] = qualityParam;
 
                 newImage.Save(savePath, jpegCodec, encoderParams);
-                //newImage.Save(@"E:\CShartProjects\Exposito\222.jpg", jpegCodec, encoderParams);
-
-
             }
         }
     }

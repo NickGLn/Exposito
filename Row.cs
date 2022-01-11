@@ -7,36 +7,50 @@ using System.Drawing.Imaging;
 using System.Linq;
 
 namespace Exposito
-{
-    //public interface IPictureItem
-    //{
-
-    //}
-
-    //public class Gallery
-    //{
-    //    public List<IPictureItem> pictureItems { get; set; }
-    //}
-    
+{  
 
     public class Row
     {
-        public List<Frame> frames { get; set; }
+        public List<Frame> Frames { get; set; }
         public Row()
         {
-            frames = new List<Frame>();
+            Frames = new List<Frame>();
         }
 
         public void Add(Frame frame)
         {
-            frames.Add(frame);
+            Frames.Add(frame);
         }
 
         public void ShowItems()
         {
-            foreach (Frame f in frames)
+            foreach (Frame f in Frames)
             {
-                Console.WriteLine("frame  width:" + f.width.ToString() + ", height: " + f.height.ToString());
+                Console.WriteLine("frame  width:" + f.Width.ToString() + ", height: " + f.Height.ToString());
+            }
+        }
+    }
+
+
+
+    public class Column
+    {
+        public List<Frame> Frames { get; set; }
+        public Column()
+        {
+            Frames = new List<Frame>();
+        }
+
+        public void Add(Frame frame)
+        {
+            Frames.Add(frame);
+        }
+
+        public void ShowItems()
+        {
+            foreach (Frame f in Frames)
+            {
+                Console.WriteLine("frame  width:" + f.Width.ToString() + ", height: " + f.Height.ToString());
             }
         }
     }
