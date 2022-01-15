@@ -2,9 +2,9 @@
 
 namespace Exposito
 {
-    public class Frame
+    public class Frame : IFrame
     {
-        public Bitmap bitmap { get; set; }
+        public Bitmap Bitmap { get; set; }
         public string Path { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
@@ -12,16 +12,10 @@ namespace Exposito
         {
 
             Bitmap bitmap = new Bitmap(path);
-            this.bitmap = bitmap;
+            this.Bitmap = bitmap;
             this.Path = path;
             this.Width = bitmap.Width;
             this.Height = bitmap.Height;
-        }
-
-        public Bitmap GetBitmap()
-        {
-            Bitmap bitmap = new Bitmap(this.Path);
-            return bitmap;
         }
 
         public float GetRatio()

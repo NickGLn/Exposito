@@ -28,17 +28,12 @@ namespace Exposito
                 Console.WriteLine("newWidth: " + totalFramesWidth.ToString());
             }
 
-
-            //Console.WriteLine("totalNewWidth: " + galleryWidth.ToString());
-
             float totalRatio = (float)initialHeight / totalFramesWidth;
             int commonHeight = (int)Math.Round(totalRatio * newWidth, 0);
 
 
             Console.WriteLine(totalRatio.ToString());
             Console.WriteLine(commonHeight.ToString());
-
-            //Console.WriteLine("newHeight: " + galleryHight.ToString() + ", newWidth: " + adjWidth.ToString());
 
             return commonHeight;
         }
@@ -62,7 +57,7 @@ namespace Exposito
                 {
                     int newWidth = (int)Math.Round(galleryHeight * frame.GetRatio(), 0);
 
-                    newGraphics.DrawImage(frame.GetBitmap(), currentWidth, 0, newWidth, galleryHeight);
+                    newGraphics.DrawImage(frame.Bitmap, currentWidth, 0, newWidth, galleryHeight);
                     currentWidth += newWidth;
                 }
 
@@ -70,6 +65,7 @@ namespace Exposito
                 var jpegCodec = Exposition.GetEncoderInfo("image/jpeg");
                 var encoderParams = new EncoderParameters(1);
                 encoderParams.Param[0] = qualityParam;
+
 
                 newImage.Save(savePath, jpegCodec, encoderParams);
             }
