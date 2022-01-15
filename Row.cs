@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Drawing.Drawing2D;
 
 namespace Exposito
-{   public interface IFrame
-    {
-        public Bitmap Bitmap { get; set; }
-        public int Height { get; set; }
-        public int Width { get; set; }
-        public float GetRatio();
-    }
-
+{   
     public class Row : IFrame
     {
         public Bitmap Bitmap { get { return GetBitmap(this.Width); } set { Bitmap = value; } }
@@ -30,7 +21,7 @@ namespace Exposito
                 this.Height = frame.Height;
             }
 
-            SetWidth();
+            this.Width = CalculateWidth();
         }
 
         public float GetRatio()
@@ -75,7 +66,7 @@ namespace Exposito
             }
         }
 
-        private void SetWidth()
+        private int CalculateWidth()
         {
             int height = this.Height;
             int rowWidth = 0;
@@ -88,7 +79,7 @@ namespace Exposito
                 rowWidth += newFrameWidth;
             }
 
-            this.Width = rowWidth;
+            return rowWidth;
         }
     }
 }

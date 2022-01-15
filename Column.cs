@@ -26,7 +26,8 @@ namespace Exposito
                 this.Width = frame.Width;
             }
 
-            SetHeight();
+            this.Height = CalculateHeight();
+
         }
 
         public float GetRatio()
@@ -72,7 +73,7 @@ namespace Exposito
         }
 
 
-        private void SetHeight()
+        private int CalculateHeight()
         {
             int width = this.Width;
             int columnHeight = 0;
@@ -85,7 +86,7 @@ namespace Exposito
                 columnHeight += newFrameHight;
             }
 
-            this.Height = columnHeight;
+            return columnHeight;
         }
     }
 }
